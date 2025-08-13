@@ -1,0 +1,71 @@
+.header-header {
+  position: relative; /* Cambiado de absolute a relative */
+  width: 100%;
+  background-image: url('/assets/imagenes/nav.png');
+  background-position: center;
+  background-size: cover; /* Añadido para mejor manejo de la imagen */
+  display: flex;
+  align-items: center;
+  padding-top: 35px;
+  background-color: whitesmoke;
+}
+
+
+.separator {
+  width: 100%;             
+  height: 4px;            
+  background-color: black;  
+  margin-top: 0px;         
+}
+
+/* Contraste*/
+.header-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+/*Letras del header */
+.header-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  width: 100%;
+  color: #fff;
+  padding-left: 1rem;
+  padding-bottom: 30px;
+}
+
+/*Disposición de las palabras TITULO*/
+.header-title {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+
+/*Disposición de las palabras SUBTITULO*/
+.header-subtitle {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+/*@media (max-width: 768px) {*/
+/*  .header-header {*/
+/*    height: 70vh;*/
+/*    padding: 1rem;*/
+/*  }*/
+
+/*  .header-content {*/
+/*    text-align: left;*/
+/*    padding-left: 1rem;*/
+/*  }*/
+/*}*/

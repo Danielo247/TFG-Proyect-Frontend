@@ -1,0 +1,48 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-body">
+      <h1 class="mb-4">Editar Tarea</h1>
+
+      <form>
+        <!--        datos de las tareas-->
+        <app-task-details [formData]="editTaskForm"
+                          [title]="task?.title"
+                          [description]="task?.description"
+                          [visible]="task?.visible"/>
+
+        @if (task?.fileTasks.length > 0 && !isFilesReset) {
+          <p-panel >
+            <!-- Contenedor principal con espacio para el botón superior -->
+            <div class="mb-3 d-flex justify-content-between align-items-center">
+              <!-- Botón nuevo en la esquina superior derecha -->
+              <h5 class="">Recursos</h5>
+              <button (click)="resetFiles()" class="btn rounded-pill px-3 d-flex align-items-center gap-2 shadow-sm recarga text-white">
+                <i class="bi bi-arrow-clockwise"></i>
+                <span>Limpiar y volver a cargar</span>
+              </button>
+            </div>
+
+            <!-- Lista de archivos -->
+            <div class="col-auto">
+              <app-file-list [files]="task?.fileTasks"/>
+            </div>
+          </p-panel>
+        } @else {
+          <!--        carga de ficheros-->
+          <app-app-upload-files (uploadedFilesChange)="handleUploadedFiles($event)"></app-app-upload-files>
+        }
+
+        @if (editTaskForm.invalid){
+          <p-message severity="info">Campos obligatorios: Titulo, descripción, fecha de entrega, hora de entrega </p-message>
+        }
+        <button [disabled]="editTaskForm.invalid" type="submit" class="btn btn-dark w-100 py-2 mt-4" (click)="sendData()">
+          Actualizar tarea
+          @if (isLoading) {
+            <div class="spinner-border text-success spinner-border-sm" role="status">
+            </div>
+          }
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

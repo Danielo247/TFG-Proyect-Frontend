@@ -1,0 +1,93 @@
+html, body {
+  height: 100%; /* Asegura que el body y html ocupen el 100% de la altura */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.f{
+
+  padding-bottom: 40px;
+}
+
+.main-content {
+  flex: 1;
+  background-color: whitesmoke;
+  margin-bottom: 20px; /* Espacio entre el contenido y el footer */
+}
+
+.card-body {
+  background-color: white;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Sombra sin borde externo */
+  min-height: calc(100vh - 100px); /* Ajusta el 100vh restando el tamaño del footer */
+  height: 100%; /* Asegura que el contenedor ocupe el 100% de la altura disponible */
+  border-radius: 8px;
+  padding-bottom: 40px; /* Agregar espacio en la parte inferior */
+  position: relative; /* Esto permite que la sombra se mantenga detrás del contenedor */
+}
+
+.card-body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px; /* Mantiene los bordes redondeados sin sombra */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Sombra */
+  z-index: -1; /* Coloca la sombra detrás del contenedor */
+}
+
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 14px;
+  border-top: 1px solid #333;
+  margin-top: 20px; /* Espacio entre el contenido y el footer */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Por si se reduce el espacio en móvil */
+}
+
+.footer-logo {
+  font-weight: bold;
+  font-size: 14px;
+  color: #fff;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #ccc;
+}
+
+.footer-divider {
+  color: #555;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,134 @@
+/* Asegura que el fondo se extienda hasta el 100% de la pantalla */
+html, body {
+  background-color: whitesmoke;
+  margin: 0;  /* Elimina el margen por defecto */
+  height: 100%; /* Asegura que el body tenga al menos la altura de la pantalla */
+}
+
+/* Fondo de la página */
+.fondo {
+  background-color: whitesmoke;
+  min-height: 100vh; /* Asegura que el fondo ocupe al menos el 100% de la pantalla */
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Asegura que el contenido comience desde arriba */
+  overflow-y: auto; /* Permite el desplazamiento cuando haya más contenido */
+}
+
+.rf {
+  padding-right: 1.80%;
+}
+
+/* Contenedor general */
+.container {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Columnas: 2 por fila */
+.col-md-6 {
+  flex: 0 0 calc(50% - 10px);
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+
+/* Estilo de las tarjetas */
+.card {
+  background-color: white;
+  color: black;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive: una columna en pantallas pequeñas */
+@media (max-width: 768px) {
+  .col-md-6 {
+    flex: 0 0 100%;
+    padding: 0;
+  }
+
+  .fondo {
+    padding: 20px 10px;
+  }
+
+  .row {
+    gap: 10px;
+    margin: 0;
+  }
+
+  .header-list-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 0 10px; /* Alineado con columnas */
+  }
+
+  .crear-curso-btn {
+    width: 100%;
+  }
+}
+
+.dialog-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.dialog-backdrop {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialog-content {
+  position: relative;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  min-width: 400px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+}
+
+.dialog-header {
+  margin-bottom: 20px;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cancel-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.save-btn {
+  background-color: #2196F3;
+  color: white;
+}
+.pop-up-position {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+}

@@ -1,0 +1,99 @@
+/* Asegura que el fondo ocupe toda la pantalla */
+html, body {
+  height: 100%; /* Asegura que el body ocupe toda la altura de la pantalla */
+  margin: 0; /* Elimina el margen por defecto */
+  background-color: whitesmoke;
+}
+
+/* Fondo de la página */
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Sombra mucho más intensa */
+  transition: box-shadow 0.3s ease;
+  min-height: 100vh; /* Asegura que la caja tenga al menos la altura de la pantalla */
+  display: flex;
+  flex-direction: column; /* Alinea el contenido verticalmente */
+  justify-content: flex-start; /* Asegura que el contenido se alinee desde arriba */
+  overflow-y: auto; /* Permite el desplazamiento vertical si el contenido es más grande que la pantalla */
+  padding: 20px;
+}
+
+/* Cuando pasas el ratón sobre el contenedor, aumenta la sombra aún más */
+.container:hover {
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.4), 0 16px 30px rgba(0, 0, 0, 0.3); /* Sombra aún más destacada */
+}
+
+
+
+/* Estilos de texto */
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Estilos para archivos */
+.file-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.file-icon {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+.btn-download {
+  margin-left: 1rem;
+}
+
+/* Botones */
+.submit-btn {
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 0;
+  width: 100%;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+}
+
+.file-upload {
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.recarga {
+  background-color: rgb(5, 150, 105) !important;
+}
+
+/* Estilos para los paneles de PrimeNG */
+:host ::ng-deep .p-panel {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+:host ::ng-deep .p-panel .p-panel-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+  padding: 1rem;
+}
+
+:host ::ng-deep .p-panel .p-panel-content {
+  padding: 1.25rem;
+  background-color: white;
+}

@@ -1,0 +1,30 @@
+<!--/home/dashboard/task-management/1/create-task-->
+<div class="main-wrapper d-flex flex-column min-vh-100">
+  <div class="container py-5 flex-grow-1 d-flex justify-content-center align-items-start">
+    <div class="card shadow rounded w-100" style="max-width: 800px;">
+      <div class="card-body">
+        <h1 class="mb-4">Crear Nueva Tarea</h1>
+
+        <form>
+          <!-- Datos de la tarea -->
+          <app-task-details [formData]="taskCreateForm"></app-task-details>
+
+          <!-- Carga de ficheros -->
+          <app-app-upload-files (uploadedFilesChange)="handleUploadedFiles($event)"></app-app-upload-files>
+
+          <!-- Botón de envío -->
+          @if (taskCreateForm.invalid){
+            <p-message severity="info">Campos obligatorios: Titulo, descripción, fecha de entrega, hora de entrega </p-message>
+          }
+          <button [disabled]="taskCreateForm.invalid" type="submit" class="btn btn-dark w-100 py-2 mt-4" (click)="sendData()">
+            Crear Tarea
+            @if (isLoading) {
+              <div class="spinner-border text-success spinner-border-sm" role="status">
+              </div>
+                }
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
